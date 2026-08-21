@@ -2,7 +2,7 @@
 
 > Open problem statement + design work for keeping LLM agents disciplined across long sessions.
 >
-> **Status: M1 — problem definition & community feedback (early stage).**
+> **Status: M3 validated on real tasks — M4 (metrics review & release) in progress.**
 
 ## The problem in one sentence
 
@@ -16,8 +16,11 @@ We run a multi-agent desktop assistant in daily production use and measured both
 
 - `docs/problem-statement.md` — full public problem statement + questions for the community (English)
 - `docs/problem-statement-zh.md` — Chinese summary
+- `docs/landscape-survey.md` — academic + industry landscape, gap confirmation (M1)
+- `docs/pitfall-kb-schema.md` — schema for the structured known-issues store (M2)
+- `docs/forced-retrieval-design.md` — "interception is retrieval" hook design (M2)
+- `docs/token-saving-playbook.md` — slim memory + on-demand recall + compaction synergy, with measured numbers (M4)
 - `docs/roadmap.md` — M1–M4 milestones
-- (upcoming) pitfall KB schema, forced-retrieval hook design, MVP code
 
 ## Key concepts
 
@@ -36,12 +39,12 @@ See [`docs/problem-statement.md`](docs/problem-statement.md). We are specificall
 
 ## Roadmap
 
-| Milestone | Focus |
-|---|---|
-| M1 | Problem definition & landscape (current) |
-| M2 | Design: pitfall KB schema + forced retrieval hook interaction |
-| M3 | MVP: real-task validation |
-| M4 | Metrics review & release (plugin / standalone) |
+| Milestone | Focus | Status |
+|---|---|---|
+| M1 | Problem definition & landscape | ✅ 2026-08-20 |
+| M2 | Design: pitfall KB schema + forced retrieval hook interaction | ✅ 2026-08-20 |
+| M3 | MVP: real-task validation | ✅ 2026-08-20 (repeated-failure task 40 min → 10 min) |
+| M4 | Metrics review & release (plugin / standalone) | 🚧 in progress |
 
 ## License
 
