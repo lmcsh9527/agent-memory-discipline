@@ -1,8 +1,33 @@
-# Agent Memory & Discipline System
+<div align="center">
+
+<img src="assets/banner.svg" alt="Agent Memory & Discipline System" width="100%">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Node](https://img.shields.io/badge/node-%E2%89%A518-brightgreen)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-ff69b4)
+
+**English** | [简体中文](README.zh-CN.md)
+
+</div>
 
 > Open problem statement + design work for keeping LLM agents disciplined across long sessions.
 >
 > **Status: M3 validated on real tasks — M4 (metrics review & release) in progress.**
+
+## The loop in one picture
+
+```mermaid
+flowchart LR
+    U[User message] --> A((Assemble))
+    A -- "recall ≤600 chars<br/>2s timeout · 30s cache" --> L[LLM turn]
+    L --> C["Capture plugin<br/>real-user filter + dedup"]
+    C --> S[(Memory store)]
+    S -.-> A
+    K["Compaction<br/>earlier trigger · richer summary"] -.-> G[Anchor-loss guard]
+    G -. read-back .-> S
+
+    style S fill:#161b22,stroke:#58a6ff,color:#e6edf3
+```
 
 ## The problem in one sentence
 
