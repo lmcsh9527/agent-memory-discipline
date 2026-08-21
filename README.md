@@ -12,8 +12,31 @@ LLM agents in long sessions degrade in two ways: they **stop executing soft text
 
 We run a multi-agent desktop assistant in daily production use and measured both failure modes. Before designing our own solution, we are posting the problem publicly to find prior art and feedback. The repo will later hold the design (pitfall-KB schema, forced-retrieval hooks) and an MVP.
 
+## Quick start (~1 minute)
+
+```bash
+git clone https://github.com/lmcsh9527/agent-memory-discipline.git
+cd agent-memory-discipline/lite-server
+node server.mjs                 # zero-dependency memory service on 127.0.0.1:8420
+curl localhost:8420/health      # {"status":"ok", ...}
+```
+
+Then follow **[SETUP.md](SETUP.md)**: wire the capture plugin + on-demand recall
+hook (DSH desktop or any other stack), and only *after* capture is verified,
+tighten compaction per the playbook.
+
+**What works right now vs what needs setup** (honesty first):
+
+| What | Status |
+|---|---|
+| `docs/` methodology — playbook, designs, landscape survey | ✅ read & apply on any stack today |
+| `lite-server/` standalone memory service | ✅ `node server.mjs`, zero deps (Node ≥ 18) |
+| `examples/` capture plugin + recall hook | 🔧 working reference code — needs a backend above + integration steps in [SETUP.md](SETUP.md) |
+
 ## Repo layout
 
+- `SETUP.md` — setup guide: memory-lite vs full backend, plugin & hook wiring, amnesia-test acceptance
+- `lite-server/` — zero-dependency standalone memory service (same API shape as TDAI)
 - `docs/problem-statement.md` — full public problem statement + questions for the community (English)
 - `docs/problem-statement-zh.md` — Chinese summary
 - `docs/landscape-survey.md` — academic + industry landscape, gap confirmation (M1)

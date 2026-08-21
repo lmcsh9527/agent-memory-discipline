@@ -1,0 +1,11 @@
+# runtime artifacts
+data/
+*.tmp
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# node
+node_modules/
