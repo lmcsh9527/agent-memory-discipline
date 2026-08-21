@@ -1,0 +1,22 @@
+{
+  "name": "@example/dsh-tdai-capture",
+  "version": "0.2.1",
+  "description": "DSH 对话自动写入记忆库插件 v2（isRealUserMessage 过滤 + session/flush await + state.jsonl 持久化去重 + adminKeyFile fail-loud）。公开参考版：真实 ID 已脱敏，使用前自行配置。",
+  "private": true,
+  "type": "module",
+  "main": "./lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/dsh-llm": ">=0.0.1-rc <2",
+    "@deepseek-ai/dsh-tools": ">=0.0.1-rc <2",
+    "cordis": ">=4.0.0-rc <5",
+    "schemastery": "^3.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "typescript": "^5.9.0"
+  }
+}
